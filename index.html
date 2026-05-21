@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ファッション・スタイル診断 | あなたのスタイルタイプを発見</title>
+  <meta name="description" content="5つの質問に答えるだけで、あなたのスタイルタイプを診断。コーデのコツ・おすすめアイテム・体型カバーのヒントをお伝えします。">
+  <link rel="canonical" href="https://example.com/fashion-style-advisor/">
+
+  <!-- OGP -->
+  <meta property="og:title" content="ファッション・スタイル診断">
+  <meta property="og:description" content="5つの質問に答えるだけであなたのスタイルタイプを診断。コーデのコツとおすすめアイテムをご提案します。">
+  <meta property="og:url" content="https://example.com/fashion-style-advisor/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://example.com/fashion-style-advisor/ogp.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ファッション・スタイル診断",
+    "description": "性別・年代・好みのスタイルからあなたのスタイルタイプを診断するWebアプリ",
+    "url": "https://example.com/fashion-style-advisor/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","s3t9vl8h3v");</script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Error Handlers -->
+  <script>
+    window.onerror = function(msg, src, line, col, err) {
+      console.error('[GlobalError]', msg, src, line, col, err);
+      return false;
+    };
+    window.addEventListener('unhandledrejection', function(e) {
+      console.error('[UnhandledRejection]', e.reason);
+    });
+  </script>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans">
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- Header -->
+  <header class="bg-rose-500 text-white py-4 px-4 shadow-lg">
+    <div class="max-w-2xl mx-auto flex items-center gap-3">
+      <span class="text-3xl">👗</span>
+      <div>
+        <h1 class="text-xl font-bold leading-tight">ファッション・スタイル診断</h1>
+        <p class="text-rose-100 text-sm">5問であなたのスタイルタイプを発見</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+
+    <!-- Intro -->
+    <div id="intro" class="bg-white rounded-2xl shadow-md p-6 mb-6">
+      <p class="text-gray-700 text-base leading-relaxed">「似合う服がわからない」「いつも同じコーデになる」そんなお悩みを解決！5問の質問に答えるだけで、あなたのスタイルタイプ・コーデのコツ・おすすめアイテムをご提案します。</p>
+      <div class="flex gap-3 mt-4 flex-wrap">
+        <span class="bg-rose-50 text-rose-600 text-sm px-3 py-1 rounded-full font-medium">✨ 無料診断</span>
+        <span class="bg-rose-50 text-rose-600 text-sm px-3 py-1 rounded-full font-medium">📋 5問のみ</span>
+        <span class="bg-rose-50 text-rose-600 text-sm px-3 py-1 rounded-full font-medium">🛍️ アイテム提案付き</span>
+      </div>
+      <button onclick="startQuiz()" class="mt-5 w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-xl transition-colors text-lg">診断スタート →</button>
+    </div>
+
+    <!-- Quiz -->
+    <div id="quiz" class="hidden">
+      <div class="mb-4">
+        <div class="flex justify-between text-sm text-gray-500 mb-1">
+          <span id="progress-label">質問 1 / 5</span>
+          <span id="progress-pct">20%</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div id="progress-bar" class="bg-rose-500 h-2 rounded-full transition-all duration-300" style="width:20%"></div>
+        </div>
+      </div>
+      <div id="question-card" class="bg-white rounded-2xl shadow-md p-6">
+        <p id="question-text" class="text-lg font-semibold text-gray-800 mb-5"></p>
+        <div id="options" class="space-y-3"></div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="hidden">
+      <div class="bg-white rounded-2xl shadow-md p-6 mb-6">
+        <div class="text-center mb-4">
+          <div id="result-icon" class="text-5xl mb-2"></div>
+          <h2 class="text-2xl font-bold text-rose-600" id="result-title"></h2>
+          <p class="text-gray-500 text-sm font-medium mt-1" id="result-subtitle"></p>
+          <p class="text-gray-700 mt-2 text-sm" id="result-desc"></p>
+        </div>
+
+        <div class="bg-rose-50 rounded-xl p-4 mb-4">
+          <h3 class="font-bold text-rose-700 mb-2">✨ コーデのコツ</h3>
+          <ul id="result-tips" class="text-sm text-gray-700 space-y-1 list-disc list-inside"></ul>
+        </div>
+
+        <div class="bg-pink-50 rounded-xl p-4 mb-5">
+          <h3 class="font-bold text-pink-700 mb-2">🛍️ おすすめアイテムカテゴリ</h3>
+          <div id="result-items" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Affiliate CTAs -->
+        <div class="space-y-3">
+          <a id="amazon-link" href="https://www.amazon.co.jp/s?k=レディースファッション&tag=appadaycrea0f-22" target="_blank" rel="noopener"
+            class="block w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-xl text-center transition-colors">
+            🛒 Amazonでおすすめファッションを見る
+          </a>
+          <a href="A8_FASHION_EC_URL_PLACEHOLDER" target="_blank" rel="noopener"
+            class="block w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-xl text-center transition-colors">
+            👗 ファッション通販サイトでコーデを探す
+          </a>
+        </div>
+
+        <button onclick="resetQuiz()" class="mt-4 w-full border border-rose-300 text-rose-600 font-medium py-2 rounded-xl hover:bg-rose-50 transition-colors">
+          もう一度診断する
+        </button>
+      </div>
+
+      <!-- AdSense -->
+      <div class="my-4 text-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <!-- Cross-links -->
+    <nav class="mt-8">
+      <h2 class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-3">関連サービス</h2>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <a href="/personal-color-finder/" class="bg-white rounded-xl shadow p-4 hover:shadow-md transition-shadow text-center">
+          <div class="text-2xl mb-1">🎨</div>
+          <div class="text-sm font-medium text-gray-700">パーソナルカラー診断</div>
+        </a>
+        <a href="/hair-removal-cost-sim/" class="bg-white rounded-xl shadow p-4 hover:shadow-md transition-shadow text-center">
+          <div class="text-2xl mb-1">✨</div>
+          <div class="text-sm font-medium text-gray-700">脱毛費用シミュレーター</div>
+        </a>
+        <a href="/beauty-clinic-advisor/" class="bg-white rounded-xl shadow p-4 hover:shadow-md transition-shadow text-center">
+          <div class="text-2xl mb-1">💆</div>
+          <div class="text-sm font-medium text-gray-700">美容クリニック診断</div>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="text-center text-xs text-gray-400 py-6 mt-4">
+    <p>※本診断は参考情報です。ご自身のお好みや体型に合わせてご活用ください。</p>
+    <p class="mt-1">&copy; 2026 Fashion Style Advisor</p>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        text: "Q1. 性別・年代を教えてください",
+        key: "persona",
+        options: [
+          { label: "👩 20代女性", value: "f20" },
+          { label: "👩 30〜40代女性", value: "f30" },
+          { label: "👨 20代男性", value: "m20" },
+          { label: "👨 30〜40代男性", value: "m30" },
+          { label: "🧒 10代", value: "teen" }
+        ]
+      },
+      {
+        text: "Q2. 好みのスタイルは？",
+        key: "style",
+        options: [
+          { label: "⚪ シンプル・ミニマル", value: "simple" },
+          { label: "👟 カジュアル・ナチュラル", value: "casual" },
+          { label: "🌸 フェミニン・ガーリー", value: "feminine" },
+          { label: "🎵 ストリート・トレンド", value: "street" },
+          { label: "👔 ビジネス・キレイめ", value: "business" }
+        ]
+      },
+      {
+        text: "Q3. ファッションを楽しむ主なシーンは？",
+        key: "scene",
+        options: [
+          { label: "🏠 日常・普段着", value: "daily" },
+          { label: "💼 仕事・オフィス", value: "work" },
+          { label: "💕 デート・おしゃれな外食", value: "date" },
+          { label: "🎉 週末のお出かけ・イベント", value: "outing" }
+        ]
+      },
+      {
+        text: "Q4. ファッションに使える月額予算は？",
+        key: "budget",
+        options: [
+          { label: "💴 1万円未満", value: "low" },
+          { label: "💴 1〜3万円", value: "mid" },
+          { label: "💴 3万円以上", value: "high" }
+        ]
+      },
+      {
+        text: "Q5. ファッションのお悩みは？",
+        key: "worry",
+        options: [
+          { label: "🤷 似合う服がわからない", value: "unknown" },
+          { label: "🏋️ 体型カバーしたい", value: "body" },
+          { label: "🔄 コーデがマンネリ", value: "rut" },
+          { label: "💰 予算内でおしゃれしたい", value: "budget" }
+        ]
+      }
+    ];
+
+    const styleResults = {
+      clean_simple: {
+        icon: "⚪",
+        title: "クリーン・シンプルスタイル",
+        subtitle: "上品なミニマリスト",
+        desc: "シンプルで洗練されたスタイルが似合うあなた。質感とシルエットにこだわることで、少ないアイテムでも洗練された印象を作れます。",
+        tips: ["モノトーン・ベーシックカラーを軸にコーデ", "アイテム数を絞り、質の良い定番品を選ぶ", "ラインがきれいな服を選ぶとスタイルアップ", "バッグ・靴など小物でさりげなく個性を出す"],
+        items: ["白シャツ", "スラックス", "トレンチコート", "シンプルスニーカー", "レザーバッグ"],
+        amazon_kw: "シンプルファッション コーデ"
+      },
+      casual_natural: {
+        icon: "🌿",
+        title: "カジュアル・ナチュラルスタイル",
+        subtitle: "リラックス上手なおしゃれさん",
+        desc: "自然体でリラックスしたおしゃれが得意なあなた。素材感や色合いにこだわることで、さりげないおしゃれが完成します。",
+        tips: ["コットン・リネンなど天然素材をチョイス", "アースカラー・くすみカラーでまとめる", "レイヤードで季節感と奥行きを出す", "ゆったりシルエットで抜け感を演出"],
+        items: ["オーバーサイズTシャツ", "デニム", "カーゴパンツ", "スポーツサンダル", "トートバッグ"],
+        amazon_kw: "カジュアルファッション コーデ レディース"
+      },
+      feminine: {
+        icon: "🌸",
+        title: "フェミニン・エレガントスタイル",
+        subtitle: "女性らしさが輝くスタイル",
+        desc: "花柄・フリル・やわらかな素材が似合うあなた。女性らしさと上品さを上手に組み合わせることで、印象的なコーデが完成します。",
+        tips: ["フラワープリント・パステルカラーを取り入れる", "ワンピース・スカートでシルエットを意識", "アクセサリーで女性らしさをプラス", "バランスを取るため上か下のどちらかをシンプルに"],
+        items: ["フレアスカート", "ワンピース", "パール系アクセサリー", "ヒールサンダル", "クラッチバッグ"],
+        amazon_kw: "フェミニン ワンピース おしゃれ"
+      },
+      street: {
+        icon: "🎵",
+        title: "ストリート・トレンドスタイル",
+        subtitle: "個性派トレンドリーダー",
+        desc: "流行に敏感でオリジナリティあふれるスタイルが得意なあなた。ミックスコーデを積極的に楽しんで個性を表現しましょう。",
+        tips: ["異素材・異ジャンルのMIXコーデに挑戦", "スニーカーをコーデの主役に", "ハットやキャップで旬な印象を演出", "ビッグシルエット×細めパンツのバランス感を"],
+        items: ["パーカー", "カーゴパンツ", "チャンキースニーカー", "キャップ", "バックパック"],
+        amazon_kw: "ストリートファッション コーデ メンズ"
+      },
+      business: {
+        icon: "👔",
+        title: "ビジネス・キレイめスタイル",
+        subtitle: "デキる大人のスマートスタイル",
+        desc: "清潔感と品格を兼ね備えたキレイめスタイルが似合うあなた。オン・オフ兼用のアイテムでおしゃれな大人の雰囲気を演出しましょう。",
+        tips: ["ジャケット1枚でパッとキレイめに変身", "ネイビー・グレー・ベージュを軸にカラー設定", "シワになりにくい素材でいつも清潔感を維持", "靴・ベルトの色を合わせて統一感を出す"],
+        items: ["テーラードジャケット", "スラックス", "白シャツ", "革靴・パンプス", "ブリーフケース"],
+        amazon_kw: "ビジネスカジュアル オフィスカジュアル コーデ"
+      }
+    };
+
+    function getResultKey(a) {
+      if (a.style === 'simple') return 'clean_simple';
+      if (a.style === 'casual') return 'casual_natural';
+      if (a.style === 'feminine') return 'feminine';
+      if (a.style === 'street') return 'street';
+      if (a.style === 'business') return 'business';
+      if (a.scene === 'work') return 'business';
+      if (a.scene === 'date') return 'feminine';
+      return 'casual_natural';
+    }
+
+    let current = 0;
+    let answers = {};
+
+    function startQuiz() {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('quiz').classList.remove('hidden');
+      showQuestion(0);
+    }
+
+    function showQuestion(idx) {
+      const q = questions[idx];
+      document.getElementById('question-text').textContent = q.text;
+      const optDiv = document.getElementById('options');
+      optDiv.innerHTML = '';
+      q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'w-full text-left border-2 border-gray-200 rounded-xl px-4 py-3 hover:border-rose-400 hover:bg-rose-50 transition-all font-medium text-gray-700';
+        btn.textContent = opt.label;
+        btn.onclick = () => selectOption(q.key, opt.value);
+        optDiv.appendChild(btn);
+      });
+      const pct = Math.round(((idx + 1) / questions.length) * 100);
+      document.getElementById('progress-label').textContent = `質問 ${idx + 1} / ${questions.length}`;
+      document.getElementById('progress-pct').textContent = pct + '%';
+      document.getElementById('progress-bar').style.width = pct + '%';
+    }
+
+    function selectOption(key, value) {
+      answers[key] = value;
+      current++;
+      if (current < questions.length) {
+        showQuestion(current);
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quiz').classList.add('hidden');
+      document.getElementById('result').classList.remove('hidden');
+      const key = getResultKey(answers);
+      const r = styleResults[key];
+      document.getElementById('result-icon').textContent = r.icon;
+      document.getElementById('result-title').textContent = r.title;
+      document.getElementById('result-subtitle').textContent = r.subtitle;
+      document.getElementById('result-desc').textContent = r.desc;
+      const ul = document.getElementById('result-tips');
+      ul.innerHTML = r.tips.map(t => `<li>${t}</li>`).join('');
+      const itemsDiv = document.getElementById('result-items');
+      itemsDiv.innerHTML = r.items.map(i => `<span class="bg-white border border-rose-200 text-rose-700 text-xs px-3 py-1 rounded-full font-medium">${i}</span>`).join('');
+      const amazonLink = document.getElementById('amazon-link');
+      const isMale = answers.persona === 'm20' || answers.persona === 'm30';
+      const genderKw = isMale ? 'メンズ' : 'レディース';
+      amazonLink.href = `https://www.amazon.co.jp/s?k=${encodeURIComponent(r.amazon_kw + ' ' + genderKw)}&tag=appadaycrea0f-22`;
+    }
+
+    function resetQuiz() {
+      current = 0;
+      answers = {};
+      document.getElementById('result').classList.add('hidden');
+      document.getElementById('intro').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
