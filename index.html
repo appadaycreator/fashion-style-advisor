@@ -136,7 +136,7 @@ button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto px-4 py-8">
+  <main role="main" class="max-w-2xl mx-auto px-4 py-8">
 
     <!-- Intro -->
     <div id="intro" class="bg-white rounded-2xl shadow-md p-6 mb-6">
@@ -146,7 +146,7 @@ button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min
         <span class="bg-rose-50 text-rose-600 text-sm px-3 py-1 rounded-full font-medium">📋 5問のみ</span>
         <span class="bg-rose-50 text-rose-600 text-sm px-3 py-1 rounded-full font-medium">🛍️ アイテム提案付き</span>
       </div>
-      <button onclick="startQuiz()" class="mt-5 w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-xl transition-colors text-lg">診断スタート →</button>
+      <button onclick="startQuiz()" class="mt-5 w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-xl transition-colors text-lg" aria-label="診断スタート →">診断スタート →</button>
     </div>
 
     <!-- Quiz -->
@@ -244,7 +244,7 @@ button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min
           </a>
         </div>
 
-        <button onclick="resetQuiz()" class="mt-4 w-full border border-rose-300 text-rose-600 font-medium py-2 rounded-xl hover:bg-rose-50 transition-colors">
+        <button onclick="resetQuiz()" class="mt-4 w-full border border-rose-300 text-rose-600 font-medium py-2 rounded-xl hover:bg-rose-50 transition-colors" aria-label="もう一度診断する">
           もう一度診断する
         </button>
       </div>
