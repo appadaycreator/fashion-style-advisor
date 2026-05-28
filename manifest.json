@@ -1,0 +1,17 @@
+{
+  "name": "ファッション診断【無料】あなたのスタイルタイプが5分で分かる",
+  "short_name": "ファッション診断【無料】",
+  "description": "体型・好み・ライフスタイルからパーソナルスタイルを無料診断。骨格・顔タイプ別コーデ提案。",
+  "start_url": "/fashion-style-advisor/",
+  "display": "standalone",
+  "background_color": "#f8faf9",
+  "theme_color": "#6366F1",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
