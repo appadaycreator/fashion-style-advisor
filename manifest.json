@@ -4,7 +4,7 @@
   "description": "体型・好み・ライフスタイルからパーソナルスタイルを無料診断。骨格・顔タイプ別コーデ提案。",
   "start_url": "/fashion-style-advisor/",
   "display": "standalone",
-  "background_color": "#f8faf9",
+  "background_color": "#ffffff",
   "theme_color": "#7c3aed",
   "lang": "ja",
   "icons": [
